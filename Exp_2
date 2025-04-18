@@ -1,0 +1,32 @@
+class Car {
+    String model;
+    int year;
+
+    Car() {
+        System.out.println("Default Constructor Called");
+    }
+
+    Car(String m, int y) {
+        model = m;
+        year = y;
+    }
+
+    void display() {
+        System.out.println("Model: " + model + ", Year: " + year);
+    }
+
+    protected void finalize() {
+        System.out.println("Destructor called (finalize method)");
+    }
+}
+
+public class Main2 {
+    public static void main(String[] args) {
+        Car c1 = new Car();
+        Car c2 = new Car("Toyota", 2020);
+        c2.display();
+        c1 = null;
+        c2 = null;
+        System.gc(); // Request garbage collection
+    }
+}
