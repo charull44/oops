@@ -1,0 +1,24 @@
+class Box<T> {
+    T value;
+
+    void setValue(T value) {
+        this.value = value;
+    }
+
+    T getValue() {
+        return value;
+    }
+
+    public <U> void printDifferentType(U other) {
+        System.out.println("Other type value: " + other);
+    }
+}
+
+public class Main7 {
+    public static void main(String[] args) {
+        Box<Integer> intBox = new Box<>();
+        intBox.setValue(100);
+        System.out.println("Value: " + intBox.getValue());
+        intBox.printDifferentType("Hello");
+    }
+}
